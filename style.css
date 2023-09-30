@@ -1,0 +1,96 @@
+.right{
+    display: flex;
+    float:right;
+    word-spacing: 30px;
+    margin-left: 300px;
+} 
+
+.hcols{
+    height: 200px;
+}
+
+.foot p{
+    margin-left: 200px;
+    font-size: 15px;
+    text-align: justify;
+    margin-right: 250px;
+
+}
+.foot span{
+    font-weight: bold;
+   margin-left: 150px;
+}
+.foot ol{
+    color: black;
+    margin-left: 200px;
+    font-weight: bold;
+}
+.foot li p{
+    color: grey;
+    margin-left: 50px;
+}
+.foot ul{
+    margin-left: 150px;
+}
+.foot ul span{
+    margin-left: auto;
+}
+
+.card-body p{
+    background-color: rgb(228, 118, 16);
+    border: 2px solid orangered;
+    height: 50px;
+    color: white
+} 
+
+
+.right span{
+    margin-left:10px ;
+}
+.ap{
+    display: flex;
+    float: left;
+}
+.app{
+    float:right;
+}
+#copy{
+    font-size: 15px;
+    float: right;
+}
+#tel{
+    color: grey;
+    display: flex;
+    float: right;
+    margin-right: 150px;
+    margin-bottom: 200px;
+   
+}
+.footm{
+    margin-top: 150px;
+}
+.links h6{
+    margin-left: 150px;
+}
+.links p{
+    margin-left: 150px;
+}
+.studio li a img {
+    display:flex;
+    float: right;
+
+}
+
+.main{
+    display: flex;
+}
+/* .details{
+    margin-left:10px;
+    font-size: 15px;
+} */
+
+/* .card p{
+    background-color: orange;
+    border: 2px solid orangered;
+    height: 50px;
+} */
