@@ -3,22 +3,52 @@
         <title>Online Shopping for Women,Men,Kids and Lifestyles - Myntra</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="index.js"></script>
+        <script src="getlocation.js"></script>
         <!-- <script src="https://kit.fontawesome.com/c4338603d0.js" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="image/myntra.jpg" rel="icon"/>
         <link rel="stylesheet" href="style.css">
+        <link href="Geolocation.html"/>
+        <!-- light mode -->
+        <script>
+          const changeMode = () => {
+              let mybody = document.body;
+              mybody.classList.toggle('mydark');
+          }
+
+          
+
+
+          
+           
+        
+
+          //
+      </script>
+      
     </head>
     <body>
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"> <img src="image/myntra.jpg" alt="Logo" style="width:50px; height:40px; margin-left: 10px; margin-top: 5px; background-color: black;" class="rounded-pill"></a>
+          <a class="navbar-brand" href="#"> <img src="image/myntra.jpg" alt="Logo" style="width:50px; height:40px; margin-left: 10px;  background-color: black;" class="rounded-pill"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <button onclick="geolocation()">Get Location</button>
+          <p id="out"></p>
+          <p id="weather"></p>
          
+          <div id="coupon">
+            <button onClick="closeCoupon()">&times;</button>
+          </div>
+          
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            
-            <ul class="navbar-nav">
+
+
+      
+             <ul class="navbar-nav">
               <!-- <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">MEN</a>
               </li>  -->
@@ -80,6 +110,7 @@
                 </ul>
               </li>
 
+              
             <!-- </ul> -->
 
              
@@ -110,6 +141,8 @@
                 <a class="nav-link" href="#">STUDIO <sup style="color:palevioletred">NEW</sup></a>
               </li> -->
             <!-- </ul> -->
+
+           
             <nav class="navbar navbar-light bg-light">
                 <div class="container-fluid">
                   <!-- <form class="d-flex">
@@ -121,12 +154,18 @@
                     <input class="form-control me-2" type="text" placeholder="Search">
                     <button class="btn btn-primary" type="button">Search</button>
                   </form>
-                  
+                  <button  onClick="changeMode()">Mode</button>
 
+                  <!-- <div id="coupon">
+                    <button onClick="closeCoupon()">&times;</button>
+                  </div>
+                   -->
+                  
                   <div class="right">
                       <span><i class="fas fa-user-alt"></i><br>Profile</span>
                        <span><i class="fa fa-heart" style="margin-right: 5px;"></i><br>Wishlist</span>
                       <span><i class="fa fa-shopping-bag"></i><br>Bag</span>
+                     
                   </div>  
               </nav>
           </div>
@@ -212,7 +251,7 @@
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
-      <div class="col"><div class="card" style="width:200px">
+      <div class="col"><div class="card" style="width:200px" >
         <img class="card-img-top" src="image/handbags/h1.jpeg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">Pretty handbags</h4> -->
@@ -220,7 +259,7 @@
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
-      <div class="col"><div class="card" style="width:200px">
+      <div class="col"><div class="card" style="width:200px;" >
         <img class="card-img-top" src="image/men/tm1.jpeg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">Dashing dress</h4> -->
@@ -228,7 +267,7 @@
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
-      <div class="col"><div class="card" style="width:200px">
+      <div class="col"><div class="card" style="width:200px; ">
         <img class="card-img-top" src="image/women/w8.jpg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">Dashing Dress</h4> -->
@@ -238,10 +277,9 @@
       </div></div>
     </div>
   </div>
-  
- 
-    
   </div>
+
+
 
   
   <div>
@@ -255,7 +293,7 @@
           <img class="card-img-top" src="image/women/w1.jpg" alt="Card image" >
           <div class="card-body">
             <!-- <h4 class="card-title">pretty dress</h4> -->
-            <p class="card-text">Best deals max 20%</p>
+            <p class="card-text">Ethnic wear<br><b>50%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div>
@@ -264,7 +302,7 @@
         <img class="card-img-top" src="image/men/ts5.jpg" alt="Card image"  >
         <div class="card-body">
           <!-- <h4 class="card-title">Dashing dress</h4> -->
-          <p class="card-text">Best deals max 20%</p>
+          <p class="card-text">Casual wear<br><b>50%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -272,7 +310,7 @@
         <img class="card-img-top" src="image/handbags/tr1.jpg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">Dashing Bags</h4> -->
-          <p class="card-text">Best deals max 20%</p>
+          <p class="card-text">latest handbag<br><b>40%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -280,7 +318,7 @@
         <img class="card-img-top" src="image/handbags/h1.jpeg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">Pretty handbags</h4> -->
-          <p class="card-text">Best deals max 20%</p>
+          <p class="card-text">latest handbag<br><b>40%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -288,7 +326,7 @@
         <img class="card-img-top" src="image/men/tm1.jpeg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">Dashing dress</h4> -->
-          <p class="card-text">Best deals max 20%</p>
+          <p class="card-text">Casual Wear<br><b>40%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -296,7 +334,7 @@
         <img class="card-img-top" src="image/beauty/Lipstick.jpg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">Dashing Dress</h4> -->
-          <p class="card-text">Best Deals max 20%</p>
+          <p class="card-text">Makeup<br><b>40%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -312,7 +350,7 @@
           <img class="card-img-top" src="image/men/js5.jpg" alt="Card image">
           <div class="card-body">
             <!-- <h4 class="card-title">John Doe</h4> -->
-            <p class="card-text">Dashing jeans upto 50% off.</p>
+            <p class="card-text">Men wear<br><b>40%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div>
@@ -321,7 +359,7 @@
         <img class="card-img-top" src="image/women/ws1.jpg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">John Doe</h4> -->
-          <p class="card-text">Dashing dress upto 50% off..</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -329,7 +367,7 @@
         <img class="card-img-top" src="image/handbags/hand2.jpeg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">John Doe</h4> -->
-          <p class="card-text">Dashing jeans upto 50% off.</p>
+          <p class="card-text">Latest trendy<br><b>40%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -337,7 +375,7 @@
         <img class="card-img-top" src="image/women/w6.jpg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">John Doe</h4> -->
-          <p class="card-text">Dashing dress upto 50% off.</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -345,7 +383,7 @@
         <img class="card-img-top" src="image/women/w4.jpg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">John Doe</h4> -->
-          <p class="card-text">Dashing dress upto 50% off.</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -353,7 +391,7 @@
         <img class="card-img-top" src="image/shoes/s15.jpg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">John Doe</h4> -->
-          <p class="card-text">Dashing jeans upto 50% off..</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -372,7 +410,7 @@
           <img class="card-img-top" src="image/handbags/tr2.jpg" alt="Card image" >
           <div class="card-body">
            
-            <p class="card-text">Best deals max 20%</p>
+            <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div>
@@ -381,7 +419,7 @@
         <img class="card-img-top" src="image/handbags/tr1.jpg" alt="Card image"  >
         <div class="card-body">
           <!-- <h4 class="card-title">trendy trolley</h4> -->
-          <p class="card-text">Best deals max 20%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -389,15 +427,14 @@
         <img class="card-img-top" src="image/handbags/handbags.jpg" alt="Card image">
         <div class="card-body">
           <!-- <h4 class="card-title">Dashing Bags</h4> -->
-          <p class="card-text">Best deals max 20%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
       <div class="col"><div class="card" style="width:200px">
         <img class="card-img-top" src="image/handbags/hand2.jpeg" alt="Card image">
         <div class="card-body">
-         
-          <p class="card-text">Best deals max 20%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -405,7 +442,7 @@
         <img class="card-img-top" src="image/handbags/hand1.jpeg" alt="Card image">
         <div class="card-body">
          
-          <p class="card-text">Best deals max 20%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -413,7 +450,7 @@
         <img class="card-img-top" src="image/handbags/h1.jpeg" alt="Card image">
         <div class="card-body">
          
-          <p class="card-text">Best Deals max 20%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -428,7 +465,7 @@
             <img class="card-img-top" src="image/women/w1.jpg" alt="Card image" >
             <div class="card-body">
              
-              <p class="card-text">Best deals max 20%</p>
+              <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
               <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
             </div>
           </div>
@@ -437,7 +474,7 @@
           <img class="card-img-top" src="image/women/w6.jpg" alt="Card image"  >
           <div class="card-body">
            
-            <p class="card-text">Best deals max 20%</p>
+            <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div></div>
@@ -445,7 +482,7 @@
           <img class="card-img-top" src="image/women/w4.jpg" alt="Card image">
           <div class="card-body">
            
-            <p class="card-text">Best deals max 20%</p>
+            <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div></div>
@@ -453,7 +490,7 @@
           <img class="card-img-top" src="image/women/ws3.jpg" alt="Card image">
           <div class="card-body">
            
-            <p class="card-text">Best deals max 20%</p>
+            <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div></div>
@@ -461,7 +498,7 @@
           <img class="card-img-top" src="image/women/t2.jpg" alt="Card image">
           <div class="card-body">
           
-            <p class="card-text">Best deals max 20%</p>
+            <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div></div>
@@ -469,7 +506,7 @@
           <img class="card-img-top" src="image/women/w5.jpg" alt="Card image">
           <div class="card-body">
             
-            <p class="card-text">Best Deals max 20%</p>
+            <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div></div>
@@ -482,8 +519,7 @@
         <div class="card" style="width:200px">
           <img class="card-img-top" src="image/men/ts5.jpg" alt="Card image">
           <div class="card-body">
-            
-            <p class="card-text">Latest dashing T-shirt</p>
+            <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div>
@@ -492,7 +528,7 @@
         <img class="card-img-top" src="image/men/j3.jpg" alt="Card image">
         <div class="card-body">
           
-          <p class="card-text">Dashing dress upto max 60%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -500,7 +536,7 @@
         <img class="card-img-top" src="image/men/ts2.jpg" alt="Card image">
         <div class="card-body">
           
-          <p class="card-text">Best Deals max 40%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -508,7 +544,7 @@
         <img class="card-img-top" src="image/men/tm4.jpg" alt="Card image">
         <div class="card-body">
           
-          <p class="card-text">Best Deals max 40% upto</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -516,7 +552,7 @@
         <img class="card-img-top" src="image/men/tm2.jpg" alt="Card image">
         <div class="card-body">
           
-          <p class="card-text">Best Deals Max 40%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -524,7 +560,7 @@
         <img class="card-img-top" src="image/men/tm1.jpeg" alt="Card image">
         <div class="card-body">
           
-          <p class="card-text">Best DEALS Max 50%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -538,7 +574,7 @@
           <img class="card-img-top" src="image/shoes/s3.png" alt="Card image">
           <div class="card-body">
           
-            <p class="card-text">Latest trends with  stylist</p>
+            <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div>
@@ -547,7 +583,7 @@
         <img class="card-img-top" src="image/shoes/s12.jpg" alt="Card image">
         <div class="card-body">
           
-          <p class="card-text">Dashing Duke shoes </p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -555,7 +591,7 @@
         <img class="card-img-top" src="image/shoes/s15.jpg" alt="Card image">
         <div class="card-body">
          
-          <p class="card-text">Dashing shoes</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -563,7 +599,7 @@
         <img class="card-img-top" src="image/shoes/s4.jpg" alt="Card image">
         <div class="card-body">
          
-          <p class="card-text">MAX 40% OFF Trending Shoes</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -571,7 +607,7 @@
         <img class="card-img-top" src="image/shoes/s6.jpg" alt="Card image">
         <div class="card-body">
          
-          <p class="card-text">MAX 40% OFF Trending Shoes.</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -579,7 +615,7 @@
         <img class="card-img-top" src="image/shoes/s11.png" alt="Card image">
         <div class="card-body">
         
-          <p class="card-text">MAX 40% OFF Trending Shoes</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -593,7 +629,7 @@
           <img class="card-img-top" src="image/kids/sg1.jpg" alt="Card image">
           <div class="card-body">
           
-            <p class="card-text">Latest trends DRESSES </p>
+            <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
             <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
           </div>
         </div>
@@ -602,7 +638,7 @@
         <img class="card-img-top" src="image/kids/sb1.jpeg" alt="Card image">
         <div class="card-body">
     
-          <p class="card-text">latest baby boy shoes</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -610,15 +646,15 @@
         <img class="card-img-top" src="image/kids/g3.jpg" alt="Card image">
         <div class="card-body">
          
-          <p class="card-text">pretty dress max 50%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
       <div class="col"><div class="card" style="width:200px">
-        <img class="card-img-top" src="image/kids/b5.jpg" alt="Card image">
+        <img src="image/kids/b5.jpg" class="card-img-top" alt="Card image">
         <div class="card-body">
           
-          <p class="card-text">Baby boy party wear dress</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
@@ -626,7 +662,7 @@
         <img class="card-img-top" src="image/kids/b3.jpg" alt="Card image">
         <div class="card-body">
          
-          <p class="card-text">Ethics and Festive baby boy dress</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary"></a> -->
         </div>
       </div></div>
@@ -634,14 +670,16 @@
         <img class="card-img-top" src="image/kids/g2.jpg" alt="Card image">
         <div class="card-body">
     
-          <p class="card-text">Pretty dress upto 50%</p>
+          <p class="card-text">Ethnic wear<br><b>60%-20%</b><br>Shop now</p>
           <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
         </div>
       </div></div>
     </div>
   </div><br><br><br>
  
-
+ 
+      
+           
  
   <footer class="text-center text-lg-start bg-light text-muted" class="footm">
    
@@ -744,6 +782,8 @@
           
     </section>
     <!-- Section: Links  -->
+
+   
     
     <div class="foot">
       <span>POPULAR SEARCHES</span>
@@ -870,6 +910,13 @@
     </div>
   </footer>
   <!-- Footer -->
+
+  <script>
+    window.onload = onloadPage()
+  </script>
+  
+    
+    
 
         
 </body>
